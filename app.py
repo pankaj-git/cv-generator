@@ -18,7 +18,7 @@ if OPENAI_MODEL:
 st.set_page_config(page_title="CV Converter", layout="centered")
 st.title("External CV → Company CV Converter")
 
-uploaded = st.file_uploader("Upload external CV (PDF/DOCX)", type=["pdf", "docx"])
+uploaded = st.file_uploader("Upload external CV (DOCX only)", type=["docx"])
 
 candidate_id = st.text_input("Candidate ID (optional, for file naming)", value="")
 
