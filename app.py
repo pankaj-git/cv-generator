@@ -1,13 +1,19 @@
 import os
 import uuid
 import streamlit as st
-from dotenv import load_dotenv
 
 from services.extract_text import extract_text_from_file
 from services.llm_extract import extract_resume_json
 from services.render_docx import render_company_docx
 
-load_dotenv()
+OPENAI_API_KEY = st.secrets.get("OPENAI_API_KEY", None)
+OPENAI_MODEL = st.secrets.get("OPENAI_MODEL", "gpt-4o-mini")
+
+# Optionally set as environment variables for downstream libraries
+if OPENAI_API_KEY:
+    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+if OPENAI_MODEL:
+    os.environ["OPENAI_MODEL"] = OPENAI_MODEL
 
 st.set_page_config(page_title="CV Converter", layout="centered")
 st.title("External CV → Company CV Converter")
