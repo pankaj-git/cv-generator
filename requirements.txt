@@ -4,6 +4,6 @@ pydantic
 docxtpl
 python-docx
 pymupdf
-langchain
-langchain-openai
+langchain==0.2.1
+langchain-openai==0.0.8
 openai
